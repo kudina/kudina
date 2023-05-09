@@ -19,6 +19,7 @@ module.exports = {
       black: "#33343D",
       hoverBg: "#eb425e",
       grey: "#8C878C",
+      lightGrey: "#E3E3E3",
     },
     fill: {
       current: "#86888C",
