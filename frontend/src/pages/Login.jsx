@@ -12,20 +12,20 @@ const Login = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-white">
       <div className="w-[400px] h-fit bg-white flex flex-col items-center py-10 px-10 font-HellixSemiBold">
-        <p className=" text-[20px]">Kudina.</p>
-        <p className=" text-[10px] text-black">
+        <p className=" text-[25px]">Kudina.</p>
+        <p className=" text-[14px] text-black">
           Sign in by entering the information below
         </p>
         <input
           type="email"
           placeholder="Email Address"
-          className="w-[100%] font-text text-[9px]  p-2 mt-4 outline-0 border-[0.2px] border-grey rounded-[3px]"
+          className="w-[100%] h-[40px] font-text text-[14px]  p-2 mt-4 outline-0 border-[0.2px] border-grey rounded-[3px]"
         />
-        <div className="flex w-full items-center mt-[20px] border-[0.2px] border-grey rounded-[3px]">
+        <div className="flex w-full h-[40px] items-center mt-[20px] border-[0.2px] border-grey rounded-[3px]">
           <input
             type={showPass ? "text" : "password"}
             placeholder="Password"
-            className="w-[90%] font-text text-[9px] p-2 outline-0 border-0 "
+            className="w-[90%] font-text text-[14px] p-2 outline-0 border-0 "
           />
           <img
             className="h-[15px] w-[20px]"
@@ -39,14 +39,14 @@ const Login = () => {
           />
         </div>
 
-        <p className="w-full text-[9px] text-grey mt-[20px]">
+        <p className="w-full text-[14px] text-grey mt-[20px]">
           <Link to={"/login"} className="float-right">
             Forgot Password?
           </Link>
         </p>
         <button
           onClick={handleLogin}
-          className="bg-brand hover:bg-hoverBg text-white  text-[14px] p-1 mt-[40px] w-[100%] rounded-[3px]"
+          className="bg-brand hover:bg-hoverBg text-white  text-[14px] p-1 mt-[40px] w-full h-[35px] rounded-[3px]"
         >
           Login
         </button>
