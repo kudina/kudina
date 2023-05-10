@@ -13,7 +13,7 @@ const AddStaff = () => {
   return (
     <Layout
       child={
-        <div className="w-full">
+        <div className="w-full px-[40px] pt-[30px]">
           <DashHeader />
 
           <div className="w-full px-[20%] pt-[30px] flex flex-col items-center text-black font-HellixRegular">
