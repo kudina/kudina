@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { setMobileMenu, mobileMenu } from "../features/generalSlice";
+import { useDispatch } from "react-redux";
+import { setMobileMenu } from "../features/generalSlice";
 
 const DashHeader = () => {
   const dispatch = useDispatch();
-  const mobile = useSelector(mobileMenu);
   return (
     <div className="flex justify-between items-center md:hidden mb-[2rem]">
       <Link to={"/"} className="text-black font-HellixSemiBold text-[20px]">
