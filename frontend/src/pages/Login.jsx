@@ -1,28 +1,27 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../features/api/apiSlice";
-import { useDispatch } from "react-redux";
-import { setUserInfo } from "../features/user/userSlice";
 
 const Login = () => {
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
   const [login, { isLoading }] = useLoginMutation();
-  const [error, setError] = useState("");
+  const [showFeedBack, setShowFeedBack] = useState();
+  const [feedBack, setFeedBack] = useState("");
   const [phoneNumber, setPhoneNumber] = useState(null);
   const [password, setPassword] = useState(null);
-  const dispatch = useDispatch();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const userInfo = await login({ phoneNumber, password }).unwrap();
       localStorage.setItem("kUser", JSON.stringify(userInfo));
-      dispatch(setUserInfo({ userInfo }));
       if (userInfo?.data !== undefined) {
         navigate("/dashboard");
       } else {
-        setError(userInfo?.msg);
+        setFeedBack(userInfo?.msg);
+        setShowFeedBack(true);
+        setTimeout(() => setShowFeedBack(false), 5000);
       }
     } catch (err) {
       console.log("Failed to login", err);
@@ -44,7 +43,7 @@ const Login = () => {
             className="w-[100%] h-[40px] font-text text-[14px]  p-2 mt-4 outline-0 border-[0.2px] border-grey rounded-[3px]"
             onChange={(e) => {
               setPhoneNumber(e.target.value);
-              setError("");
+              setFeedBack("");
             }}
           />
           <div className="flex w-full h-[40px] items-center mt-[20px] border-[0.2px] border-grey rounded-[3px]">
@@ -55,7 +54,7 @@ const Login = () => {
               className="w-[90%] font-text text-[14px] p-2 outline-0 border-0 "
               onChange={(e) => {
                 setPassword(e.target.value);
-                setError("");
+                setFeedBack("");
               }}
             />
             <img
@@ -79,7 +78,9 @@ const Login = () => {
             {isLoading ? "Checking details..." : "Login"}
           </button>
 
-          <p className="text-brand text-[14px] mt-2">{error}</p>
+          {!isLoading && showFeedBack && (
+            <p className="text-brand text-[14px] mt-2">{feedBack}</p>
+          )}
         </form>
       </div>
     </div>

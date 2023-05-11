@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import DashHeader from "../components/DashHeader";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { userInfo } from "../features/user/userSlice";
 
 const Dashboard = () => {
   const [advanceFrame, setAdvanceFrame] = useState("Daily");
@@ -14,7 +12,6 @@ const Dashboard = () => {
   const [openAccumulationFrame, setOpenAccumulationFrame] = useState(false);
   const [customersFrame, setCustomersFrame] = useState("Yearly");
   const [openCustomersFrame, setOpenCustomersFrame] = useState(false);
-  const superUser = useSelector(userInfo);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
@@ -22,10 +19,10 @@ const Dashboard = () => {
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("kUser")));
-    if (superUser === null) {
+    if (!localStorage.getItem("kUser")) {
       navigate("/");
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <Layout

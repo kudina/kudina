@@ -14,7 +14,14 @@ export const apiSlice = createApi({
         body: user,
       }),
     }),
+    addStaff: builder.mutation({
+      query: (staff) => ({
+        url: "/user/register",
+        method: "POST",
+        body: staff,
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation } = apiSlice;
+export const { useLoginMutation, useAddStaffMutation } = apiSlice;
