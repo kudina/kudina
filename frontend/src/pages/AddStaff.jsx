@@ -1,7 +1,11 @@
 import { useState } from "react";
 import Layout from "../components/Layout";
 import DashHeader from "../components/DashHeader";
-import { useAddStaffMutation } from "../features/api/apiSlice";
+import {
+  useAddStaffMutation,
+  useGetBranchQuery,
+  useGetRoleQuery,
+} from "../features/api/apiSlice";
 
 const AddStaff = () => {
   const [userRole, setUserRole] = useState(null);
@@ -19,9 +23,9 @@ const AddStaff = () => {
   const [guarantorsNumber, setGuarantorsNumber] = useState(null);
   const [guarantorsAddress, setGuarantorsAddress] = useState(null);
 
-  const Role = ["Branch Manager", "Base User", "Admin", "Super Admin"];
-  const Branch = ["HQ"];
   const [addStaff, { isLoading: isAddingStaff }] = useAddStaffMutation();
+  const { data: Branch } = useGetBranchQuery();
+  const { data: Role } = useGetRoleQuery();
 
   const handleAddStaff = async (e) => {
     e.preventDefault();
@@ -137,20 +141,20 @@ const AddStaff = () => {
                     !openUserRole && "hidden "
                   }`}
                 >
-                  {Role?.map((role) => (
+                  {Role?.data?.map((role) => (
                     <li
-                      key={role}
+                      key={role?._id}
                       className={`w-full border-y-[1px] border-y-white p-[5px]  hover:bg-brand hover:text-white text-[14px] ${
-                        userRole === role
+                        userRole === role?.title
                           ? "bg-brand text-white"
                           : "bg-white text-[#717579]"
                       }`}
                       onClick={() => {
                         setOpenUserRole(false);
-                        setUserRole(role);
+                        setUserRole(role?.title);
                       }}
                     >
-                      {role}
+                      {role?.title}
                     </li>
                   ))}
                 </ul>
@@ -180,20 +184,20 @@ const AddStaff = () => {
                     !openUserBranch && "hidden "
                   }`}
                 >
-                  {Branch?.map((branch) => (
+                  {Branch?.data?.map((branch) => (
                     <li
-                      key={branch}
+                      key={branch?._id}
                       className={`w-full border-y-[1px] border-y-white p-[5px]  hover:bg-brand hover:text-white text-[14px] ${
-                        userBranch === branch
+                        userBranch === branch?.title
                           ? "bg-brand text-white"
                           : "bg-white text-[#717579]"
                       }`}
                       onClick={() => {
                         setOpenUserBranch(false);
-                        setUserBranch(branch);
+                        setUserBranch(branch?.title);
                       }}
                     >
-                      {branch}
+                      {branch?.title}
                     </li>
                   ))}
                 </ul>

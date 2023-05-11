@@ -3,6 +3,9 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import AddStaff from "./pages/AddStaff";
+import Settings from "./pages/Settings";
+import AddUserRole from "./pages/AddUserRole";
+import AddBranch from "./pages/AddBranch";
 
 const routes = createBrowserRouter([
   {
@@ -20,6 +23,23 @@ const routes = createBrowserRouter([
   {
     path: "/add_staff",
     element: <AddStaff />,
+  },
+
+  {
+    path: "/settings",
+    element: <Settings />,
+
+    children: [
+      { index: true, element: <AddUserRole /> },
+      {
+        path: "create_user_role",
+        element: <AddUserRole />,
+      },
+      {
+        path: "create_branch",
+        element: <AddBranch />,
+      },
+    ],
   },
 ]);
 

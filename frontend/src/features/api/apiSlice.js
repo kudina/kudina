@@ -21,7 +21,38 @@ export const apiSlice = createApi({
         body: staff,
       }),
     }),
+    addUserRole: builder.mutation({
+      query: (title) => ({
+        url: "/settings/create-user-role",
+        method: "POST",
+        body: title,
+      }),
+    }),
+    getRole: builder.query({
+      query: () => ({
+        url: "/settings/get-all-user-roles",
+      }),
+    }),
+    addBranch: builder.mutation({
+      query: (branch) => ({
+        url: "/settings/create-branch",
+        method: "POST",
+        body: branch,
+      }),
+    }),
+    getBranch: builder.query({
+      query: () => ({
+        url: "/settings/get-all-branches",
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useAddStaffMutation } = apiSlice;
+export const {
+  useLoginMutation,
+  useAddStaffMutation,
+  useAddUserRoleMutation,
+  useAddBranchMutation,
+  useGetBranchQuery,
+  useGetRoleQuery,
+} = apiSlice;
