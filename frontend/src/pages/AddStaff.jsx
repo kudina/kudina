@@ -16,7 +16,7 @@ const AddStaff = () => {
         <div className="w-full px-[40px] pt-[30px]">
           <DashHeader />
 
-          <div className="w-full px-[20%] pt-[30px] flex flex-col items-center text-black font-HellixRegular">
+          <div className="w-full px-[5%] md:px-[20%] pt-[30px] flex flex-col items-center text-black font-HellixRegular">
             <p className="text-[20px] font-HellixSemiBold">Add Staff</p>
 
             <form className="mt-[40px]">

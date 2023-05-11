@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import DashHeader from "../components/DashHeader";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { userInfo } from "../features/user/userSlice";
 
 const Dashboard = () => {
   const [advanceFrame, setAdvanceFrame] = useState("Daily");
@@ -11,8 +14,18 @@ const Dashboard = () => {
   const [openAccumulationFrame, setOpenAccumulationFrame] = useState(false);
   const [customersFrame, setCustomersFrame] = useState("Yearly");
   const [openCustomersFrame, setOpenCustomersFrame] = useState(false);
+  const superUser = useSelector(userInfo);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   const Frame = ["Daily", "Weekly", "Monthly", "Yearly"];
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("kUser")));
+    if (superUser === null) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <Layout
@@ -21,7 +34,7 @@ const Dashboard = () => {
           <DashHeader />
           <div className="flex flex-col items-center md:items-start">
             <p className="font-HellixSemiBold text-[20px]">
-              Good Morning, Alexander
+              Good Morning, {user?.data?.firstName}
             </p>
             <p className="text-grey text-[14px]">
               Welcome back, nice to see you again!

@@ -4,7 +4,6 @@ import { mobileMenu } from "../features/generalSlice";
 
 const Layout = ({ child }) => {
   const mobile = useSelector(mobileMenu);
-  console.log(mobile);
   return (
     <div className="bg-white flex w-full h-screen ">
       <div

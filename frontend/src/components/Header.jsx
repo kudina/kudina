@@ -22,7 +22,10 @@ const Header = () => {
               Contact
             </Link>
           </ul>
-          <button className="ml-[30px] border-[0.2px] border-brand rounded-[3px] text-brand py-[5px] px-[15px] hover:bg-brand hover:text-white">
+          <button
+            className="ml-[30px] border-[0.2px] border-brand rounded-[3px] text-brand py-[5px] px-[15px] hover:bg-brand hover:text-white"
+            onClick={() => navigate("/login")}
+          >
             Get Started
           </button>
         </div>
