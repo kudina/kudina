@@ -52,6 +52,11 @@ export const apiSlice = createApi({
         body: customer,
       }),
     }),
+    getCustomers: builder.query({
+      query: () => ({
+        url: "/customers/customer",
+      }),
+    }),
   }),
 });
 
@@ -63,4 +68,5 @@ export const {
   useGetBranchQuery,
   useGetRoleQuery,
   useCreateCustomerMutation,
+  useGetCustomersQuery,
 } = apiSlice;

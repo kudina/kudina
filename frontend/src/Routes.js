@@ -7,6 +7,7 @@ import Settings from "./pages/Settings";
 import AddUserRole from "./pages/AddUserRole";
 import AddBranch from "./pages/AddBranch";
 import CreateCustomer from "./pages/CreateCustomer";
+import Customers from "./pages/Customers";
 
 const routes = createBrowserRouter([
   {
@@ -28,6 +29,11 @@ const routes = createBrowserRouter([
   {
     path: "/create_customer",
     element: <CreateCustomer />,
+  },
+
+  {
+    path: "/customers",
+    element: <Customers />,
   },
 
   {
