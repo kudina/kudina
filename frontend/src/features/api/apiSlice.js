@@ -45,6 +45,13 @@ export const apiSlice = createApi({
         url: "/settings/get-all-branches",
       }),
     }),
+    createCustomer: builder.mutation({
+      query: (customer) => ({
+        url: "/customers/create-customer",
+        method: "POST",
+        body: customer,
+      }),
+    }),
   }),
 });
 
@@ -55,4 +62,5 @@ export const {
   useAddBranchMutation,
   useGetBranchQuery,
   useGetRoleQuery,
+  useCreateCustomerMutation,
 } = apiSlice;

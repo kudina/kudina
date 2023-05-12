@@ -6,6 +6,7 @@ import AddStaff from "./pages/AddStaff";
 import Settings from "./pages/Settings";
 import AddUserRole from "./pages/AddUserRole";
 import AddBranch from "./pages/AddBranch";
+import CreateCustomer from "./pages/CreateCustomer";
 
 const routes = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const routes = createBrowserRouter([
   {
     path: "/add_staff",
     element: <AddStaff />,
+  },
+  {
+    path: "/create_customer",
+    element: <CreateCustomer />,
   },
 
   {
