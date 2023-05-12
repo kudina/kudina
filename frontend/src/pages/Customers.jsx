@@ -5,8 +5,6 @@ import { useGetCustomersQuery } from "../features/api/apiSlice";
 
 const Customers = () => {
   const { data: allCustomers, isLoading } = useGetCustomersQuery();
-
-  console.log(allCustomers);
   return (
     <Layout
       child={
@@ -20,7 +18,7 @@ const Customers = () => {
 
           <div className="px-[40px] md:pl-[17.5rem] pt-[30px] text-black font-HellixSemiBold ">
             {allCustomers?.data?.map((customer) => (
-              <div>
+              <div key={customer?._id}>
                 <p className="font-HellixRegular text-[12px] text-black">
                   FIRST NAME:{" "}
                   <span className="font-HellixSemiBold">
@@ -54,17 +52,17 @@ const Customers = () => {
                   <span className="font-HellixSemiBold">{customer.value}</span>
                 </p>
 
-                <div className=" my-[20px] flex flex-col md:flex-row">
-                  <div className="flex flex-col lg:flex-row">
-                    <button className="text-brand text-[14px] font-HellixSemiBold py-[5px] px-[12px] rounded-[3px] border-brand border-[0.2px] hover:bg-brand hover:text-white">
+                <div className=" my-[20px] flex flex-col md:flex-row flex-wrap gap-[10px]">
+                  <div className="flex flex-col md:flex-row flex-wrap gap-[10px]">
+                    <button className="text-brand text-[14px] w-full md:w-[8rem] font-HellixSemiBold py-[5px] px-[12px] rounded-[3px] border-brand border-[0.2px] hover:bg-brand hover:text-white">
                       Update
                     </button>
-                    <button className="text-brand text-[14px] font-HellixSemiBold py-[5px] px-[12px] rounded-[3px] border-brand border-[0.2px] ml-[15px] mr-[6rem] hover:bg-brand hover:text-white">
+                    <button className="text-brand text-[14px] w-full md:w-[8rem] font-HellixSemiBold py-[5px] px-[12px] rounded-[3px] border-brand border-[0.2px]  mr-[6rem] hover:bg-brand hover:text-white">
                       Show Update
                     </button>
                   </div>
                   <div>
-                    <button className="text-brand text-[14px] font-HellixSemiBold py-[5px] px-[12px] rounded-[3px] bg-brand text-white">
+                    <button className="text-brand text-[14px] w-full md:w-[16.7rem] font-HellixSemiBold py-[5px] px-[12px] rounded-[3px] bg-brand text-white ">
                       View Customer Profile
                     </button>
                   </div>
