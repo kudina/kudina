@@ -126,7 +126,7 @@ const CustomerProfile = () => {
           <p className="px-[5%] md:pl-[35%] md:pr-[15%] text-center font-HellixRegular text-[12px] text-black leading-6">
             CREATED DATE:{" "}
             <span className="font-HellixSemiBold">
-              <Moment format="MMMM DD, YYYY">{customer?.createdDate}</Moment>
+              <Moment format="YYYY-MM-DD">{customer?.createdDate}</Moment>
             </span>
           </p>
         </div>

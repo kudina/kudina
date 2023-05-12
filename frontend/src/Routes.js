@@ -9,6 +9,8 @@ import AddBranch from "./pages/AddBranch";
 import CreateCustomer from "./pages/CreateCustomer";
 import Customers from "./pages/Customers";
 import CustomerProfile from "./pages/CustomerProfile";
+import Accounts from "./pages/Accounts";
+import AccountsById from "./pages/AccountsById";
 
 const routes = createBrowserRouter([
   {
@@ -40,6 +42,16 @@ const routes = createBrowserRouter([
   {
     path: "/customer/:userId",
     element: <CustomerProfile />,
+  },
+
+  {
+    path: "/accounts/:userId",
+    element: <AccountsById />,
+  },
+
+  {
+    path: "/accounts",
+    element: <Accounts />,
   },
 
   {

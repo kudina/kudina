@@ -52,9 +52,28 @@ export const apiSlice = createApi({
         body: customer,
       }),
     }),
+    createAccount: builder.mutation({
+      query: (account) => ({
+        url: "/customers/create-account",
+        method: "POST",
+        body: account,
+      }),
+    }),
     getCustomers: builder.query({
       query: () => ({
         url: "/customers/customer",
+      }),
+    }),
+    getAllAccounts: builder.query({
+      query: () => ({
+        url: "/customers/get-all-accounts",
+      }),
+    }),
+    getAccountsById: builder.mutation({
+      query: (id) => ({
+        url: "/customers/get-all-accounts-by-id",
+        method: "POST",
+        body: id,
       }),
     }),
   }),
@@ -69,4 +88,7 @@ export const {
   useGetRoleQuery,
   useCreateCustomerMutation,
   useGetCustomersQuery,
+  useGetAllAccountsQuery,
+  useCreateAccountMutation,
+  useGetAccountsByIdMutation,
 } = apiSlice;
