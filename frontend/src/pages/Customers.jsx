@@ -2,9 +2,11 @@ import React from "react";
 import Layout from "../components/Layout";
 import DashHeader from "../components/DashHeader";
 import { useGetCustomersQuery } from "../features/api/apiSlice";
+import { useNavigate } from "react-router-dom";
 
 const Customers = () => {
   const { data: allCustomers, isLoading } = useGetCustomersQuery();
+  const navigate = useNavigate();
   return (
     <Layout
       child={
@@ -32,10 +34,6 @@ const Customers = () => {
                   </span>
                 </p>
                 <p className="font-HellixRegular text-[12px] text-black">
-                  EMAIL:{" "}
-                  <span className="font-HellixSemiBold">{customer.email}</span>
-                </p>
-                <p className="font-HellixRegular text-[12px] text-black">
                   PHONE NUMBER:{" "}
                   <span className="font-HellixSemiBold">
                     {customer.phoneNumber}
@@ -47,22 +45,18 @@ const Customers = () => {
                     {customer.HomeAddress}
                   </span>
                 </p>
-                <p className="font-HellixRegular text-[12px] text-black">
-                  BALANCE:{" "}
-                  <span className="font-HellixSemiBold">{customer.value}</span>
-                </p>
 
                 <div className=" my-[20px] flex flex-col md:flex-row flex-wrap gap-[10px]">
                   <div className="flex flex-col md:flex-row flex-wrap gap-[10px]">
-                    <button className="text-brand text-[14px] w-full md:w-[8rem] font-HellixSemiBold py-[5px] px-[12px] rounded-[3px] border-brand border-[0.2px] hover:bg-brand hover:text-white">
-                      Update
-                    </button>
-                    <button className="text-brand text-[14px] w-full md:w-[8rem] font-HellixSemiBold py-[5px] px-[12px] rounded-[3px] border-brand border-[0.2px]  mr-[6rem] hover:bg-brand hover:text-white">
-                      Show Update
+                    <button className="text-brand text-[14px] w-full md:w-[16.7rem] font-HellixSemiBold py-[5px] px-[12px] rounded-[3px] border-brand border-[0.2px] hover:bg-brand hover:text-white">
+                      Create Account
                     </button>
                   </div>
                   <div>
-                    <button className="text-brand text-[14px] w-full md:w-[16.7rem] font-HellixSemiBold py-[5px] px-[12px] rounded-[3px] bg-brand text-white ">
+                    <button
+                      className="text-brand text-[14px] w-full md:w-[16.7rem] font-HellixSemiBold py-[5px] px-[12px] rounded-[3px] bg-brand text-white "
+                      onClick={() => navigate(`/customer/${customer?._id}`)}
+                    >
                       View Customer Profile
                     </button>
                   </div>
