@@ -120,7 +120,7 @@ const Layout = ({ child }) => {
         </div>
       </div>
 
-      <div className="grow bg-white">{child}</div>
+      <div className=" grow bg-white ">{child}</div>
     </div>
   );
 };

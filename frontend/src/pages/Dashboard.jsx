@@ -27,7 +27,7 @@ const Dashboard = () => {
   return (
     <Layout
       child={
-        <div className="px-[40px] pt-[30px] text-black font-HellixSemiBold ">
+        <div className="px-[40px] md:pl-[17.5rem] pt-[30px] text-black font-HellixSemiBold ">
           <DashHeader />
           <div className="flex flex-col items-center md:items-start">
             <p className="font-HellixSemiBold text-[20px]">

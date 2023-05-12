@@ -28,7 +28,7 @@ const AddBranch = () => {
     }
   };
   return (
-    <div className="w-full px-[5%] md:px-[25%] pt-[30px] flex flex-col items-center text-black font-HellixRegular">
+    <div className="w-full px-[5%] md:pl-[35%] md:pr-[15%] pt-[30px] flex flex-col items-center text-black font-HellixRegular">
       <p className="text-[20px] font-HellixSemiBold">Add Branch</p>
 
       <form className="mt-[40px] mb-8" onSubmit={handleAddBranch}>
