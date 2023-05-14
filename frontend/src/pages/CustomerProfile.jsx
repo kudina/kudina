@@ -22,7 +22,7 @@ const CustomerProfile = () => {
                 <img
                   src={customer?.profileImage}
                   alt=""
-                  className="h-[100px] w-[100%] rounded-[50%] border-brand border-[2px]"
+                  className="h-[100px] w-[100px] rounded-[50%] border-brand border-[2px]"
                 />
               </div>
               <p className="mt-[10px] font-HellixSemiBold">
