@@ -14,8 +14,20 @@ const Dashboard = () => {
   const [openCustomersFrame, setOpenCustomersFrame] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  var myDate = new Date();
+  var hrs = myDate.getHours();
 
   const Frame = ["Daily", "Weekly", "Monthly", "Yearly"];
+
+  const dayTime = () => {
+    var greet;
+
+    if (hrs < 12) greet = "Good Morning";
+    else if (hrs >= 12 && hrs <= 17) greet = "Good Afternoon";
+    else if (hrs >= 17 && hrs <= 24) greet = "Good Evening";
+
+    return greet;
+  };
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("kUser")));
@@ -31,7 +43,7 @@ const Dashboard = () => {
           <DashHeader />
           <div className="flex flex-col items-center md:items-start">
             <p className="font-HellixSemiBold text-[20px]">
-              Good Morning, {user?.data?.firstName}
+              {dayTime()}, {user?.data?.firstName}
             </p>
             <p className="text-grey text-[14px]">
               Welcome back, nice to see you again!
