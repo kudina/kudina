@@ -7,6 +7,7 @@ import {
 } from "../features/api/apiSlice";
 import Moment from "react-moment";
 import { useParams, useNavigate } from "react-router-dom";
+import { Oval } from "react-loader-spinner";
 
 const AccountsById = () => {
   const { userId } = useParams();
@@ -147,6 +148,19 @@ const AccountsById = () => {
             <div className="text-center w-full pb-[20px] ">
               All Accounts for {userId}
             </div>
+            {isLoading && (
+              <div className="p-[15px]">
+                <Oval
+                  height="50"
+                  width="50"
+                  radius="9"
+                  color="#CD2844"
+                  wrapperStyle={{}}
+                  wrapperClassName=""
+                  visible={true}
+                />
+              </div>
+            )}
           </div>
           <hr className="h-[0.2px] text-lightGrey" />
 

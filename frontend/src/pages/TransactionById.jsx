@@ -4,6 +4,7 @@ import DashHeader from "../components/DashHeader";
 import { useGetTransactionByIdMutation } from "../features/api/apiSlice";
 import Moment from "react-moment";
 import { useParams, useNavigate } from "react-router-dom";
+import { Oval } from "react-loader-spinner";
 
 const TransactionById = () => {
   const { accountId } = useParams();
@@ -42,6 +43,19 @@ const TransactionById = () => {
                 onClick={() => navigate(-1)}
               />
             </div>
+            {isLoading && (
+              <div className="p-[15px]">
+                <Oval
+                  height="50"
+                  width="50"
+                  radius="9"
+                  color="#CD2844"
+                  wrapperStyle={{}}
+                  wrapperClassName=""
+                  visible={true}
+                />
+              </div>
+            )}
           </div>
           {transaction?.data?.map((transaction) => (
             <div>

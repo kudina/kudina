@@ -6,6 +6,7 @@ import {
   useCreateAccountMutation,
 } from "../features/api/apiSlice";
 import { useNavigate } from "react-router-dom";
+import { Oval } from "react-loader-spinner";
 
 const Customers = () => {
   const { data: allCustomers, isLoading } = useGetCustomersQuery();
@@ -127,6 +128,19 @@ const Customers = () => {
             <DashHeader />
 
             <div className="text-center w-full pb-[20px] ">Customer Table</div>
+            {isLoading && (
+              <div className="p-[15px]">
+                <Oval
+                  height="50"
+                  width="50"
+                  radius="9"
+                  color="#CD2844"
+                  wrapperStyle={{}}
+                  wrapperClassName=""
+                  visible={true}
+                />
+              </div>
+            )}
           </div>
           <hr className="h-[0.2px] text-lightGrey" />
 
