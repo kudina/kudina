@@ -65,6 +65,12 @@ const Layout = ({ child }) => {
               Add Staff
             </Link>
             <Link
+              to={"/ledger"}
+              className="text-black font-HellixRegular font[500] text-[14px] p-[5px] hover:text-white hover:bg-brand pl-[20px] rounded-[1px] mr-[10px] mb-[25px]"
+            >
+              Ledger
+            </Link>
+            <Link
               to={"/dashboard"}
               className="flex items-center text-black font-HellixRegular font[500] text-[14px] p-[5px] hover:text-white hover:bg-brand pl-[20px] rounded-[1px] mr-[10px] mb-[25px] "
             >

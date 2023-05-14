@@ -39,6 +39,10 @@ const routes = createBrowserRouter([
     path: "/customers",
     element: <Customers />,
   },
+  {
+    path: "/ledger",
+    element: <Accounts />,
+  },
 
   {
     path: "/customer/:userId",
