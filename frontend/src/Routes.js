@@ -11,6 +11,7 @@ import Customers from "./pages/Customers";
 import CustomerProfile from "./pages/CustomerProfile";
 import Accounts from "./pages/Accounts";
 import AccountsById from "./pages/AccountsById";
+import TransactionById from "./pages/TransactionById";
 
 const routes = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const routes = createBrowserRouter([
   {
     path: "/accounts/:userId",
     element: <AccountsById />,
+  },
+  {
+    path: "/transactions/:accountId",
+    element: <TransactionById />,
   },
 
   {

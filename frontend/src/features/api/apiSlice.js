@@ -76,6 +76,20 @@ export const apiSlice = createApi({
         body: id,
       }),
     }),
+    getTransactionById: builder.mutation({
+      query: (id) => ({
+        url: "/customers/account/get-all-transactions-by-id",
+        method: "POST",
+        body: id,
+      }),
+    }),
+    createTransaction: builder.mutation({
+      query: (transaction) => ({
+        url: "/customers/create-transaction",
+        method: "POST",
+        body: transaction,
+      }),
+    }),
   }),
 });
 
@@ -91,4 +105,6 @@ export const {
   useGetAllAccountsQuery,
   useCreateAccountMutation,
   useGetAccountsByIdMutation,
+  useGetTransactionByIdMutation,
+  useCreateTransactionMutation,
 } = apiSlice;

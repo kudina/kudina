@@ -17,9 +17,7 @@ const Customers = () => {
   const [lastName, setLastName] = useState(null);
   const [ApprovedSum, setApprovedSum] = useState(null);
   const [dailyRate, setDailyRate] = useState(null);
-  const [Accumulation, setAccumulation] = useState(null);
   const [maturityDate, setMaturityDate] = useState(null);
-  const [balance, setBalance] = useState(null);
   const [feedBack, setFeedBack] = useState("");
   const [showFeedBack, setShowFeedBack] = useState(false);
   const navigate = useNavigate();
@@ -31,10 +29,8 @@ const Customers = () => {
       lastName,
       ApprovedSum,
       dailyRate,
-      Accumulation,
       customerId,
       maturityDate,
-      balance,
     };
     try {
       const response = await createAccount(account).unwrap();
@@ -108,16 +104,6 @@ const Customers = () => {
                   setFeedBack("");
                 }}
               />
-              <input
-                type="text"
-                placeholder="Accumulation"
-                className="w-full h-[40px] font-HellixRegular text-[14px]  p-2 mb-4 outline-0 border-[0.2px] border-grey rounded-[3px]"
-                required
-                onChange={(e) => {
-                  setAccumulation(e.target.value);
-                  setFeedBack("");
-                }}
-              />
 
               <input
                 type="date"
@@ -126,16 +112,6 @@ const Customers = () => {
                 required
                 onChange={(e) => {
                   setMaturityDate(e.target.value);
-                  setFeedBack("");
-                }}
-              />
-              <input
-                type="text"
-                placeholder="Balance"
-                className="w-full h-[40px] font-HellixRegular text-[14px]  p-2 mb-4 outline-0 border-[0.2px] border-grey rounded-[3px]"
-                required
-                onChange={(e) => {
-                  setBalance(e.target.value);
                   setFeedBack("");
                 }}
               />
@@ -192,6 +168,14 @@ const Customers = () => {
                       className="text-brand text-[14px] w-full md:w-[16.7rem] font-HellixSemiBold py-[5px] px-[12px] rounded-[3px] border-brand border-[0.2px] hover:bg-brand hover:text-white"
                     >
                       {isLoading ? "Creating Account" : "Create Account"}
+                    </button>
+                    <button
+                      onClick={() => {
+                        navigate(`/accounts/${customer?._id}`);
+                      }}
+                      className="text-brand text-[14px] w-full md:w-[16.7rem] font-HellixSemiBold py-[5px] px-[12px] rounded-[3px] border-brand border-[0.2px] hover:bg-brand hover:text-white"
+                    >
+                      View Customer's Accounts
                     </button>
                   </div>
                   <div>

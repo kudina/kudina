@@ -81,14 +81,6 @@ const Accounts = () => {
                       Show Update
                     </button>
                   </div>
-                  <div>
-                    <button
-                      className="text-brand text-[14px] w-full md:w-[16.7rem] font-HellixSemiBold py-[5px] px-[12px] rounded-[3px] bg-brand text-white"
-                      onClick={() => navigate(`/accounts/${account?._id}`)}
-                    >
-                      View Customer's Accounts
-                    </button>
-                  </div>
                 </div>
               </div>
             ))}
